@@ -1,0 +1,4 @@
+"C:\Program Files (x86)\NUnit.org\nunit-console\nunit3-console.exe" --labels=All  --out=TestResult.txt "--result=TestResult.xml;format=nunit2" ./LandsWa.Acceptance.Smoke.Tests/bin/Debug/LandsWa.Acceptance.Smoke.Tests.dll
+
+
+.\packages\SpecFlow.2.3.2\tools\Specflow.exe nunitexecutionreport  .\LandsWa.Acceptance.Smoke.Tests\LandsWa.Acceptance.Smoke.Tests.csproj /out:Result.html
