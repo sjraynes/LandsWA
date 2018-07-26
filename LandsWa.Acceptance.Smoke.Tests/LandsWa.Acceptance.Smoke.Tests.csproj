@@ -85,6 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManagerLogin.feature</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AssignApplicantCustomerPage.cs" />
     <Compile Include="Pages\MyDashboardPage.cs" />
     <Compile Include="Pages\TeamDashboardPage.cs" />
     <Compile Include="SetupTeardown\BaseTestFeature.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="SetupTeardown\BaseTest.cs" />
     <Compile Include="Helper\Constants.cs" />
     <Compile Include="Tests\LoginPageTests.cs" />
+    <Compile Include="Tests\SearchApplicantTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
