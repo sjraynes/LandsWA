@@ -20,20 +20,16 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
 
         private static IWebDriver _driver;
 
-        protected static WebDriverWait Wait = null;
-
-        protected static int WaitForThisElement { get; set; } = 1500;
-
-        private const int _seconds = 120;
-
+        protected static WebDriverWait Wait = null;       
         protected abstract By IsPageLoadedBy { get; }
 
         protected BasePage(IWebDriver driver)
         {
-            SetWait(driver, _seconds);
-            WaitForPageToBeReady(Wait);
-
-            PageFactory.InitElements(driver, this);
+            SetWait(driver, 60);
+            if (IsDocumentReady())
+                PageFactory.InitElements(driver, this);
+            else
+                throw new Exception("Page not loaded correctly(BasePage-constructor)");
             _driver = driver;
         }
 
@@ -41,20 +37,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         {
             try
             {
-                _driver.FindElement(IsPageLoadedBy);
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool IsPageLoaded(String xpath)
-        {
-            try
-            {
-                _driver.FindElement(By.XPath(xpath));
+                if(IsDocumentReady())
+                    Wait.Until(ExpectedConditions.ElementExists(IsPageLoadedBy));
                 return true;
             }
             catch (Exception)
@@ -80,125 +64,67 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             }
         }
 
-        /// <summary>
-        /// Requires finding element by FindElementSafe(By).
-        /// Returns T/F depending on if element is defined or null.
-        /// </summary>
-        /// <param name="element">Current element</param>
-        /// <returns>Returns T/F depending on if element is defined or null.</returns>
-        public static bool Exists(IWebElement element)
-        {
-            if (element == null)
-            { return false; }
-            return true;
-        }
-
         public static void SetWait(IWebDriver driver, int WaitForElementInSeconds)
         {
             Wait = new WebDriverWait(driver, TimeSpan.FromSeconds(WaitForElementInSeconds));
         }
 
-        public static string GetSfIdFromUrl(string url)
+        private bool IsDocumentReady()
         {
-            string SfIdWithViewText = url.Substring(url.Length - 23, 23); //@"https://kikkacapitalorg2--kikkatest.lightning.force.com/one/one.app#/sObject/a0s0k000000w90jAAA/view";
-            string SfId = SfIdWithViewText.Substring(0, 18);
-            return SfId;
-        }
-
-        #region Get element by id, css, xpath. Get the parent of the current element
-        protected IWebElement GetElementById(string id)
-        {
-            return _driver.FindElement(By.Id(id));
-        }
-
-        protected IWebElement GetElementBySelector(string selector)
-        {
-            return _driver.FindElement(By.CssSelector(selector));
-        }
-
-        protected IWebElement GetElementByXpath(string selector)
-        {
-            return _driver.FindElement(By.XPath(selector));
-        }
-
-        protected IList<IWebElement> GetElementsByXPath(string selector)
-        {
-            return _driver.FindElements(By.XPath(selector));
-        }
-
-        protected IWebElement GetElementParent(IWebElement element)
-        {
-            return element.FindElement(By.XPath("./parent::*"));
-        }
-
-        protected static IWebElement GetElementByText(string text)
-        {
-            return _driver.FindElement(By.XPath($"//*[text()='{text}']"));
-        }
-
-        #endregion
-
-        #region Select an option from drop down
-        public static void ClickOnDropDownOption(string option, IList<IWebElement> dropdownOptions)
-        {
-            foreach (IWebElement ele in dropdownOptions)
-                if (ele.Text.Equals(option, StringComparison.OrdinalIgnoreCase))
-                {
-                    ele.Click();
-                    break;
-                }
-        }
-
-        public static void ClickOnDropDownOption(string option, IWebElement ele)
-        {
-            SelectElement selectTag = new SelectElement(ele);
-            selectTag.SelectByValue(option);
-        }
-        #endregion
-
-        #region Wait for page or element to load and visible and clickable
-        private static void WaitForPageToBeReady(WebDriverWait Wait)
-        {
-            Thread.Sleep(WaitForThisElement);
-            Wait.Until(driver =>
+            return Wait.Until(driver =>
             {
-                //bool isAjaxFinished = (bool)((IJavaScriptExecutor)driver).
-                //    ExecuteScript("return jQuery.active == 0");
                 bool isDocumentReady = (bool)((IJavaScriptExecutor)driver).
                     ExecuteScript("return document.readyState").
                     ToString().
                     Equals("complete");
-                //bool isLoaderHidden = (bool)((IJavaScriptExecutor)driver).
-                //    ExecuteScript("return $('.overlay').is(':visible') == false");
                 return isDocumentReady;
             });
         }
 
-        public static void WaitForElementToExist(By by)
+        private IWebElement GetElement(By by)
         {
-            WaitForPageToBeReady(Wait);
-            Wait.Until(ExpectedConditions.ElementExists(by));
+            Thread.Sleep(1500);
+            bool pageLoad = IsDocumentReady();
+            if (pageLoad)
+            {
+                Wait.Until(ExpectedConditions.ElementExists(by));
+                Wait.Until(ExpectedConditions.ElementToBeClickable(_driver.FindElement(by)));
+                Wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(by));
+                return Wait.Until<IWebElement>(d => d.FindElement(by));
+            }
+            else
+                return null;
         }
 
-        public static void WaitForElementToExist(IWebElement ele)
+        #region Get element by id, css, xpath. Get the parent of the current element
+        protected IWebElement GetElementByText(string text)
         {
-            WaitForPageToBeReady(Wait);
-            Wait.Until(ExpectedConditions.ElementToBeClickable(ele));
+            return GetElement(By.XPath($"//*[text()='{text}']"));
         }
 
-        public static void WaitForElementToBeInvisible(By by)
+        protected IWebElement GetElementById(string id)
         {
-            WaitForPageToBeReady(Wait);
-            Wait.Until(ExpectedConditions.InvisibilityOfElementLocated(by));
+            return GetElement(By.Id(id));
         }
 
-        public static void WaitForElementToBeVisible(By by)
+        protected IWebElement GetElementBySelector(string selector)
         {
-            WaitForPageToBeReady(Wait);
-            Wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(by));
+            return GetElement(By.CssSelector(selector));
         }
 
+        protected IWebElement GetElementByXpath(string selector)
+        {
+            return GetElement(By.XPath(selector));
+        }
+
+        protected IList<IWebElement> GetElementsByXPath(string selector)
+        {
+            IList<IWebElement> ele =
+                Wait.Until<IList<IWebElement>>(d => d.FindElements(By.XPath(selector)));
+            return ele;
+        }
         #endregion
+
 
         #region Scroll/Click On Page to different location
         //public static void ClickAtSpecificPointOnWebElement(IWebElement ele, int xOffsetPercentage, int yOffsetPercentage)
@@ -228,17 +154,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         {
             IJavaScriptExecutor jse = (IJavaScriptExecutor)_driver;
             jse.ExecuteScript("window.scrollBy(0,250)", "");
-        }
-        #endregion
-
-        #region Execute JavaScript
-        public static string ExecuteJavascript(IWebDriver driver, string javaScript)
-        {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            var result = js.ExecuteScript(javaScript);
-            if (result != null)
-                return result.ToString();
-            return null;
         }
         #endregion
 
@@ -278,52 +193,15 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             driver.SwitchTo().Window(windowHandle);
         }
 
-        public IWebElement GetValidator(string field, string validator)
-        {
-            return _driver.FindElement(By.XPath($"//small[@data-fv-for='{field}' and @data-fv-validator='{validator}']"));
-        }
-
         public void ReloadPage()
         {
             _driver.Navigate().Refresh();
-            WaitForPageToBeReady(Wait);
-            PageFactory.InitElements(_driver, this);
+            if (IsDocumentReady())
+                PageFactory.InitElements(_driver, this);
+            else
+                throw new Exception("Page DOM not ready after Refresh");
         }
-
-        public BasePage EnterText(IWebElement el, string text)
-        {
-            var dataType = el.GetAttribute("data-type");
-            bool isAddress = false;
-            if (dataType != null && dataType == "hidden-address")
-            {
-                isAddress = true;
-
-                el = _driver.FindElement(By.CssSelector($"[name='{el.GetAttribute("name")}_google']"));
-            }
-
-            el.Clear();
-
-            if (text == "")
-            {
-                el.SendKeys("randomstring");
-                for (int i = 25; i > 0; i--) el.SendKeys(Keys.Backspace);
-                return this;
-            }
-
-            el.SendKeys(text);
-
-            if (isAddress)
-            {
-                WaitForElementToExist(By.CssSelector(".pac-container .pac-item"));
-                _driver.FindElement(By.CssSelector(".pac-container .pac-item")).Click();
-            }
-
-            return this;
-        }
-
-        #endregion
-
-        #region Find broken links
+        
         public static IList<IWebElement> findAllLinks()
         {
             IList<IWebElement> elementList = new List<IWebElement>();

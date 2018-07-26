@@ -14,7 +14,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
     [TestFixture]
     public class BaseTest
     {
-        protected LoginPage LoginPage;
         string LoginUrl = "https://walandstest.appiancloud.com/suite/";
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         protected IWebDriver Driver { get; private set; }
@@ -31,7 +30,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
         {
             Driver.Manage().Cookies.DeleteAllCookies();
             Driver.Navigate().GoToUrl(LoginUrl);
-            LoginPage = new LoginPage(Driver);
         }
 
         [TearDown]
@@ -47,7 +45,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
             {
                 CleanUpInstances();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Console.WriteLine(e.InnerException);
             }
