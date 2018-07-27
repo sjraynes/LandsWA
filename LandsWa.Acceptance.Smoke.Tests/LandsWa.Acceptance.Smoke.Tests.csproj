@@ -85,9 +85,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ManagerLogin.feature</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdditionalInformationMileStone.cs" />
+    <Compile Include="Pages\ApplicantDetailsMileStone.cs" />
     <Compile Include="Pages\AssignApplicantCustomerPage.cs" />
+    <Compile Include="Pages\ConsultationMileStone.cs" />
+    <Compile Include="Pages\LandDetailsMileStone.cs" />
     <Compile Include="Pages\MyDashboardPage.cs" />
+    <Compile Include="Pages\RequestDetailsMileStone.cs" />
+    <Compile Include="Pages\ReviewMileStone.cs" />
+    <Compile Include="Pages\SubmissionMileStone.cs" />
     <Compile Include="Pages\TeamDashboardPage.cs" />
+    <Compile Include="Pages\TermsAndConditionsMileStone.cs" />
     <Compile Include="SetupTeardown\BaseTestFeature.cs" />
     <Compile Include="Steps\ManagerLoginSteps.cs" />
     <Compile Include="Pages\BasePage.cs" />
@@ -95,8 +103,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetupTeardown\BaseTest.cs" />
     <Compile Include="Helper\Constants.cs" />
+    <Compile Include="Tests\AdditionalInformationMileStoneTest.cs" />
+    <Compile Include="Tests\ConsultationMileStoneTest.cs" />
+    <Compile Include="Tests\LandDetailsMileStoneTest.cs" />
     <Compile Include="Tests\LoginPageTests.cs" />
+    <Compile Include="Tests\RequestDetailsMileStoneTest.cs" />
+    <Compile Include="Tests\ReviewMileStoneTest.cs" />
     <Compile Include="Tests\SearchApplicantTest.cs" />
+    <Compile Include="Tests\SubmissionMileStoneTest.cs" />
+    <Compile Include="Tests\TermsAndConditionsMileStoneTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

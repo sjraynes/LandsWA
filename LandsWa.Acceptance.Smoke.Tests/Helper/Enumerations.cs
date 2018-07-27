@@ -24,5 +24,19 @@ namespace LandsWa.Acceptance.Smoke.Tests.Helper
             Manager,
             ExecutiveDirector
         }
+
+        public enum Decision
+        {
+            Yes,
+            No,
+            NotApplicable
+        }
+
+        public enum ContactMethod
+        {
+            Email,
+            PrintAndPost,
+            BothEmailAndPrintAndPost
+        }
     }
 }

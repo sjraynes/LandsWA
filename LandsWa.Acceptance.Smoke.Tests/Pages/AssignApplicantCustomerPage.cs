@@ -32,9 +32,10 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return this;
         }
 
-        public void Continue()
+        public ApplicantDetailsMileStone Continue()
         {
             applicantSearch.ClickContinueButton();
+            return new ApplicantDetailsMileStone(_driver);
         }
 
     }
@@ -44,7 +45,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         protected override By IsPageLoadedBy => By.XPath("//h2[contains(text(),'Search for Applicant')]");
         private IWebDriver _driver;
         protected string staticPageHeading = "//h2[contains(text(),'Search for Applicant')]";
-        protected string firstNameField = "//input[@id='7b135ddd8d533c9a9ab6b06bd12e5da2']";
+        protected string firstNameField = "//*[text()='First Name']/../..//input";
         protected string disabledApplyButton = "//div[@class='Button---disabled_btn_glass']/following-sibling::button[text()='Apply']";
         protected string enabledApplyButton = "//button[contains(text(),'Apply')]";
 
@@ -69,17 +70,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         {
             GetElementByXpath(staticPageHeading).Click();
             GetElementByXpath(enabledApplyButton).Click();
-            //try
-            //{
-            //    do
-            //        GetElementByXpath(enabledApplyButton).Click();
-            //    while (!GetElementByXpath(searchResultText).Displayed);
-            //}
-            //catch(Exception e)
-            //{
-            //    Console.WriteLine(e.InnerException);
-            //    Console.WriteLine("Search Result text not displayed");
-            //}
             return this;
         }
 
