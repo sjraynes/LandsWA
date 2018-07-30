@@ -3,7 +3,7 @@ using System;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
-    internal class MyDashboardPage : BasePage
+    public class MyDashboardPage : BasePage
     {
         protected override By IsPageLoadedBy => By.XPath("//title[contains(text(),'My Dashboard - iWMS DoL Officer Site')]");
         private IWebDriver _driver;
@@ -24,7 +24,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return NameElement.Displayed;
         }
 
-        public AssignApplicantCustomerPage ClickCreateNewCaseButon()
+        internal AssignApplicantCustomerPage ClickCreateNewCaseButon()
         {
             IWebElement ele = null;
             try

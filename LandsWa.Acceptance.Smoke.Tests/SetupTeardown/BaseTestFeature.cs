@@ -8,6 +8,7 @@ using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
 using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
+using System.Collections.Generic;
 
 namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
 {

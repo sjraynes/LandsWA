@@ -8,7 +8,7 @@ using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
-    class ConsultationMileStone : BasePage
+    public class ConsultationMileStone : BasePage
     {
         protected override By IsPageLoadedBy => By.XPath("//a[text()='Consultation']/span[text()='Current Step']");
         private IWebDriver _driver;

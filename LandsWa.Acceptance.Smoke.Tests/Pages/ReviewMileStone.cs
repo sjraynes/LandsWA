@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
-    internal class ReviewMileStone : BasePage
+    public class ReviewMileStone : BasePage
     {
         protected override By IsPageLoadedBy => By.XPath("//a[text()='Review']/span[text()='Current Step']");
         private IWebDriver _driver;

@@ -11,23 +11,23 @@ namespace LandsWa.Acceptance.Smoke.Tests
     [Binding]
     public class ManagerLoginSteps : BaseTestFeature
     {
-        protected LoginPage loginPage;
         protected TeamDashboardPage teamDashboard;
-        dynamic page;
+        protected LoginPage loginPage;
+        protected CommonSteps com;
 
         [Given(@"I am on the login page")]
         public void GivenIAmOnTheLoginPage()
         {
-            loginPage = new LoginPage(Driver);
+            loginPage = (new CommonSteps(Driver))
+                .BrowseToLoginPage();
         }
         
-        [Given(@"I enter Username and password for a manager")]
-        public void GivenIEnterUsernameAndPasswordForAManager(Table table)
+        [Given(@"I enter Username and password")]
+        public void GivenIEnterUsernameAndPassword(Table table)
         {
             var credentials = table.CreateInstance<Constants>();
-            loginPage.EnterUsername(credentials.ManagerUsername, User.Manager);
-            loginPage.EnterPassword(credentials.ManagerPassword);
-
+            loginPage.EnterUsername(credentials.AssManagerUsername, User.Manager);
+            loginPage.EnterPassword(credentials.AssManagerPassword);
         }
 
         [When(@"I click on Login button")]

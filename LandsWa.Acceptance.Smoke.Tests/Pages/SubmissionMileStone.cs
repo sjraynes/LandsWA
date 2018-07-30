@@ -8,7 +8,7 @@ using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
-    internal class SubmissionMileStone : BasePage
+    public class SubmissionMileStone : BasePage
     {
         protected override By IsPageLoadedBy => By.XPath("//a[text()='Submission']/span[text()='Current Step']");
         private IWebDriver _driver;
@@ -24,7 +24,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             GetElementByXpath(staticPageElement).Click();
         }
 
-        public SubmissionMileStone ConfirmSendCaseSummaryToApplicantRadioButton(Decision decision)
+        public SubmissionMileStone SendCaseSummaryToApplicantRadioButton(Decision decision)
         {
             switch(decision)
             {

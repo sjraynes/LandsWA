@@ -79,6 +79,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Feature\CaseSubmission.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CaseSubmission.feature</DependentUpon>
+    </Compile>
+    <Compile Include="Helper\CommonSteps.cs" />
     <Compile Include="Helper\Enumerations.cs" />
     <Compile Include="Feature\ManagerLogin.feature.cs">
       <AutoGen>True</AutoGen>
@@ -97,6 +103,7 @@
     <Compile Include="Pages\TeamDashboardPage.cs" />
     <Compile Include="Pages\TermsAndConditionsMileStone.cs" />
     <Compile Include="SetupTeardown\BaseTestFeature.cs" />
+    <Compile Include="Steps\CaseSubmissionSteps.cs" />
     <Compile Include="Steps\ManagerLoginSteps.cs" />
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\LoginPage.cs" />
@@ -121,6 +128,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Feature\CaseSubmission.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>CaseSubmission.feature.cs</LastGenOutput>
+    </None>
     <None Include="Feature\ManagerLogin.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>ManagerLogin.feature.cs</LastGenOutput>
