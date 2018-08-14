@@ -59,7 +59,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .EnterDateReceived()
                 .EnterDatesigned()
                 .ClickSubmitButton()
-                .ConfirmSendCaseSummaryToApplicantRadioButton(Decision.Yes)
+                .SendCaseSummaryToApplicantRadioButton(Decision.Yes)
                 .SelectMethodOfContact(ContactMethod.Email)
                 .AnyOtherDocumentsToSend(Decision.No)
                 .ClickReadyToEmailConfirmationCheckbox()

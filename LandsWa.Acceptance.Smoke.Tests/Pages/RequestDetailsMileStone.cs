@@ -2,7 +2,7 @@
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
-    internal class RequestDetailsMileStone : BasePage
+    public class RequestDetailsMileStone : BasePage
     {
         protected override By IsPageLoadedBy => By.XPath("//a[text()='Request Details']/span[text()='Current Step']");
         private IWebDriver _driver;

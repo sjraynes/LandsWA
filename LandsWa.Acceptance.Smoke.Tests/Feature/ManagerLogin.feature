@@ -6,7 +6,7 @@
 @smoke
 Scenario: Manager logs in successfully
 Given I am on the login page
-And I enter Username and password for a manager
+And I enter Username and password
 | username | password |
 | SophiaAss | infy4321 |
 When I click on Login button

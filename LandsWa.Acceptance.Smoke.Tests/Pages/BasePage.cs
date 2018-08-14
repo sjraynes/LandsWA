@@ -1,6 +1,5 @@
 ﻿using OpenQA.Selenium;
 using System;
-using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using System.Collections.Generic;
 using System.Net;
@@ -9,6 +8,7 @@ using log4net;
 using System.Reflection;
 using System.Threading;
 using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
+using OpenQA.Selenium.Support.PageObjects;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {

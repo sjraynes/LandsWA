@@ -18,20 +18,21 @@ namespace LandsWa.Acceptance.Smoke.Tests.Feature
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.3.2.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("ManagerLogin")]
-    public partial class ManagerLoginFeature
+    [NUnit.Framework.DescriptionAttribute("CaseSubmission")]
+    public partial class CaseSubmissionFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "ManagerLogin.feature"
+#line 1 "CaseSubmission.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "ManagerLogin", "\tIn order to assign cases\r\n\tAs a Manager\r\n\tI want to login to IWMS system", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "CaseSubmission", "\tIn order to create new cases\r\n\tAs an Officer\r\n\tI want to submit new cases for ap" +
+                    "plicants", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -64,31 +65,43 @@ namespace LandsWa.Acceptance.Smoke.Tests.Feature
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Manager logs in successfully")]
+        [NUnit.Framework.DescriptionAttribute("Verify that a case can be submitted successfully")]
         [NUnit.Framework.CategoryAttribute("smoke")]
-        public virtual void ManagerLogsInSuccessfully()
+        public virtual void VerifyThatACaseCanBeSubmittedSuccessfully()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Manager logs in successfully", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a case can be submitted successfully", new string[] {
                         "smoke"});
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
-testRunner.Given("I am on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("a web browser is at IWMS login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 9
+testRunner.When("the officer enters username \"BenAss\" and password \"infy4321\" to login", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+testRunner.And("searches for an applicant \"Ravi\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                        "username",
-                        "password"});
+                        "key",
+                        "value"});
             table1.AddRow(new string[] {
-                        "SophiaAss",
-                        "infy4321"});
-#line 9
-testRunner.And("I enter Username and password", ((string)(null)), table1, "And ");
-#line 12
-testRunner.When("I click on Login button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 13
-testRunner.Then("I should be taken to team dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 14
-testRunner.And("Manager name \'Sophia\' should be displayed on the Team Dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                        "requestCategory",
+                        "Easement"});
+            table1.AddRow(new string[] {
+                        "requestDescription",
+                        "Automation Tests"});
+            table1.AddRow(new string[] {
+                        "lga",
+                        "Joondalup"});
+            table1.AddRow(new string[] {
+                        "methodOfContact",
+                        "Email"});
+            table1.AddRow(new string[] {
+                        "sendOtherDocumentsToApplicant",
+                        "No"});
+#line 11
+testRunner.And("creates a new case for this applicant with the following information", ((string)(null)), table1, "And ");
+#line 18
+testRunner.Then("a new case will be created on team dashboard", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
