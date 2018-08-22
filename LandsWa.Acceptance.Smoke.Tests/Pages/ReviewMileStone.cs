@@ -13,7 +13,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         private IWebDriver _driver;
         protected string staticPageElement = "//h2[contains(text(), 'Review')]";
         protected string checkbox = "//input/..";
-        protected string continueButton = "//button[text()='Continue']";
+        protected string continueButton = "//button[text()='Submit']";
 
         public ReviewMileStone(IWebDriver driver) : base(driver)
         {
@@ -27,10 +27,10 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return this;
         }
 
-        public TermsAndConditionsMileStone ClickContinueButton()
+        public SubmissionMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
-            return new TermsAndConditionsMileStone(_driver);
+            return new SubmissionMileStone(_driver);
         }
     }
 }

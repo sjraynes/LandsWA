@@ -22,7 +22,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
         protected ConsultationMileStone consultationPage;
         protected AdditionalInformationMileStone additionalInfoPage;
         protected ReviewMileStone reviewPage;
-        protected TermsAndConditionsMileStone termsAndConditionsPage;
         protected SubmissionMileStone submissionPage;
         protected CommonSteps com;
 
@@ -66,6 +65,11 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
                 .SelectGeneralRequestType()
                 .SelectCategoryFromDropdown(data["requestCategory"])
                 .EnterDescription(data["requestDescription"])
+                .ClickCLEFRequestCheckbox()
+                .ClickApplicantSignedCheckbox()
+                .EnterDateSigned()
+                .EnterDateReceived()
+                .UploadDocument("Document_1.txt")
                 .ClickContinueButton()
                 .AddLandRecordForLGA(data["lga"])
                 .ClickContinueButton()
@@ -76,11 +80,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
                 .ClickContinueButton()
                 .ClickCheckBox()
                 .ClickContinueButton()
-                .ClickTermsAndConditionsCheckbox()
-                .ClickSignedCheckbox()
-                .EnterDateReceived()
-                .EnterDatesigned()
-                .ClickSubmitButton()
                 .SendCaseSummaryToApplicantRadioButton(Decision.Yes)
                 .SelectMethodOfContact(ContactMethod.Email)
                 .AnyOtherDocumentsToSend(Decision.No)
