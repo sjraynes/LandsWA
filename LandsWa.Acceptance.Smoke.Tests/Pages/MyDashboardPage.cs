@@ -20,7 +20,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
 
         public bool IsOfficerNameDisplayed(string name)
         {
-            var NameElement = GetElementByXpath($"//span[contains(text(),'{name}')]");
+            var NameElement = GetElementByXpath($"//strong[contains(text(),'{name}')]");
             return NameElement.Displayed;
         }
 

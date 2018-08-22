@@ -33,9 +33,13 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .Continue()
                 .ClickContinueButton()
                 .SelectGeneralRequestType()
-                .ClickOnCategoryDropDown()
-                .SelectFromDopDown("Easement")
+                .SelectCategoryFromDropdown("Easement")
                 .EnterDescription("Descr")
+                .ClickCLEFRequestCheckbox()
+                .ClickApplicantSignedCheckbox()
+                .EnterDateSigned()
+                .EnterDateReceived()
+                .UploadDocument("Document_1.txt")
                 .ClickContinueButton()
                 .IsPageLoaded();
 

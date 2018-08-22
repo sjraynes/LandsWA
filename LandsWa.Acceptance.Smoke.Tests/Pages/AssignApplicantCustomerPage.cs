@@ -82,7 +82,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             }
             catch(Exception e)
             {
-                Console.WriteLine("Search Result is empty");
+                Console.WriteLine("Search Result is empty " + e.Message);
                 return false;
             }
             return true;
@@ -97,7 +97,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Search Result does not contain the name - {name}");
+                Console.WriteLine($"Search Result does not contain the name - {name} " + e.Message);
                 return false;
             }
             return true;

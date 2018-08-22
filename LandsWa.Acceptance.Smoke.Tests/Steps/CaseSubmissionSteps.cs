@@ -64,8 +64,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
             var data = CommonSteps.ToDictionary(table);
             applicantDetailsPage.ClickContinueButton()
                 .SelectGeneralRequestType()
-                .ClickOnCategoryDropDown()
-                .SelectFromDopDown(data["requestCategory"])
+                .SelectCategoryFromDropdown(data["requestCategory"])
                 .EnterDescription(data["requestDescription"])
                 .ClickContinueButton()
                 .AddLandRecordForLGA(data["lga"])

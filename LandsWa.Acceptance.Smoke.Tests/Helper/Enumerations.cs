@@ -32,6 +32,13 @@ namespace LandsWa.Acceptance.Smoke.Tests.Helper
             NotApplicable
         }
 
+        public enum RequestType
+        {
+            General,
+            LGA,
+            Event
+        }
+
         public enum ContactMethod
         {
             Email,
