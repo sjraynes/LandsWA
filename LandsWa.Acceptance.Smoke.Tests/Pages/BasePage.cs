@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Threading;
 using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
 using OpenQA.Selenium.Support.PageObjects;
+using System.Windows.Forms;
+using System.IO;
 
 namespace LandsWa.Acceptance.Smoke.Tests.Pages
 {
@@ -251,5 +253,20 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return result;
         }
         #endregion
+
+        public static void UploadDocument(IWebElement ele, string filename)
+        {
+            ele.Click();
+            Thread.Sleep(1000);
+            SendKeys.SendWait(GetResourcesFolderPath() + filename);
+            Thread.Sleep(500);
+            SendKeys.SendWait(@"{Enter}");
+        }
+
+        private static string GetResourcesFolderPath()
+        {
+            return Path.Combine(Path.GetDirectoryName(
+                Assembly.GetExecutingAssembly().Location), @"..\..\Resources\");
+        }
     }
 }

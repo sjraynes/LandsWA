@@ -96,15 +96,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
 
         public RequestDetailsMileStone UploadDocument(string fileName)
         {
-            string path = Path.Combine(Path.GetDirectoryName(
-                Assembly.GetExecutingAssembly().Location), @"..\..\Resources\");
             GetElementByXpath(staticPageElement).Click();
-            Thread.Sleep(500);
-            GetElementByXpath(uploadButton).Click();
-            Thread.Sleep(1000);
-            SendKeys.SendWait(path + fileName);
-            Thread.Sleep(500);
-            SendKeys.SendWait(@"{Enter}");
+            UploadDocument(GetElementByXpath(uploadButton), fileName);
             return this;
         }
 
