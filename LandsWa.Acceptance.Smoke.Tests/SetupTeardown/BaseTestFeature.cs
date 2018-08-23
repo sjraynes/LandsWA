@@ -9,6 +9,9 @@ using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
 using static LandsWa.Acceptance.Smoke.Tests.Helper.Enumerations;
 using System.Collections.Generic;
+using NUnit.Framework;
+using System.IO;
+using System.Security.AccessControl;
 
 namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
 {
@@ -34,7 +37,9 @@ namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
         [AfterFeature]
         public static void TearDown()
         {
-
+            string path = BasePage.GetFolderPathInProjectRoot("ss");
+            path = $"{path}{TestContext.CurrentContext.Test.Name}.png";
+            BasePage.TakeScreenshot(path);
         }
 
         [AfterTestRun]
