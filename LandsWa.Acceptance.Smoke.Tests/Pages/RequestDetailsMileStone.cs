@@ -27,6 +27,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         protected string dateSigned = "//label[text()='Date Signed']/../../div[2]//input";
         protected string uploadButton = "//button[text()='Upload']";
         protected string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
+        protected string errorMessage = "//*[contains(text(), 'A value is required')]";
 
         public RequestDetailsMileStone(IWebDriver driver) : base(driver)
         {
@@ -104,6 +105,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public LandDetailsMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
+            if(GetElementByXpath(staticPageElement).Exist)
+                throw new Exception("Error exists on Request Details page submission");
             return new LandDetailsMileStone(_driver);
         }
     }
