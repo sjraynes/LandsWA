@@ -104,6 +104,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public LandDetailsMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
+            Console.WriteLine("Moved past Request Details Page");
             return new LandDetailsMileStone(_driver);
         }
     }
