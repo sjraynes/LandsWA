@@ -258,7 +258,11 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         {
             ele.Click();
             Thread.Sleep(1000);
-            SendKeys.SendWait(GetResourcesFolderPath() + filename);
+            var filepath = GetResourcesFolderPath() + filename;
+            if (File.Exists(filepath))
+                SendKeys.SendWait(GetResourcesFolderPath() + filename);
+            else
+                throw new Exception("File to upload does not exist");
             Thread.Sleep(500);
             SendKeys.SendWait(@"{Enter}");
         }
