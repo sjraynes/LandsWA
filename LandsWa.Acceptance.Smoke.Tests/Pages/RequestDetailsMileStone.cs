@@ -105,8 +105,10 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public LandDetailsMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
-            if (GetElementByXpath(errorMessage).Displayed)
+            try { 
+            if (_driver.FindElement(By.XPath(errorMessage)).Displayed)
                 throw new Exception("Error displayed on Request Details page");
+            }catch(Exception e) { Console.WriteLine("Request Details error validation throws error");   }
             Console.WriteLine("Moved past Request Details Page");
             return new LandDetailsMileStone(_driver);
         }
