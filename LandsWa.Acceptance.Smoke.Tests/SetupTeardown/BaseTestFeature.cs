@@ -38,7 +38,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.SetupTeardown
         public static void TearDown()
         {
             string path = BasePage.GetFolderPathInProjectRoot("ss");
-            string method = String.Join("", Regex.Unescape(TestContext.CurrentContext.Test.Name).Split('\"'));
+            string method = String.Join("", TestContext.CurrentContext.Test.Name.Split('\"'));
             path = $@"{path}{method}.png";
             BasePage.TakeScreenshot(path);
         }
