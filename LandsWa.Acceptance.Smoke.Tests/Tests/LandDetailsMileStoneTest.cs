@@ -43,6 +43,11 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .SelectGeneralRequestType()
                 .SelectCategoryFromDropdown(category)
                 .EnterDescription("Descr")
+                .ClickCLEFRequestCheckbox()
+                .ClickApplicantSignedCheckbox()
+                .EnterDateSigned()
+                .EnterDateReceived()
+                .UploadDocument("Document_1.txt")
                 .ClickContinueButton()
                 .AddLandRecordForLGA(LGAName)
                 .IsLandRecordAdded();
