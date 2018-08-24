@@ -24,6 +24,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         {
             GetElementByXpath(continueButton).Click();
             return new ReviewMileStone(_driver);
+            // adding a comment
+            
 
         }
     }
