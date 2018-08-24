@@ -72,11 +72,11 @@ namespace LandsWa.Acceptance.Smoke.Tests.Feature
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Verify that a case can be submitted successfully")]
-        [NUnit.Framework.CategoryAttribute("smoke")]
+        [NUnit.Framework.CategoryAttribute("E2E")]
         public virtual void VerifyThatACaseCanBeSubmittedSuccessfully()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify that a case can be submitted successfully", null, new string[] {
-                        "smoke"});
+                        "E2E"});
 #line 7
 this.ScenarioInitialize(scenarioInfo);
             this.ScenarioStart();

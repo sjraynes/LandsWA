@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="C:\Users\Kirti\Documents\Visual Studio 2015\Projects\LandsWa.Acceptance.Smoke.Tests\LandsWa.Acceptance.Smoke.Tests\bin\Debug\LandsWa.Acceptance.Smoke.Tests.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2018-08-24" time="03:43:04">
+  <environment nunit-version="3.6.0.0" clr-version="4.0.30319.42000" os-version="Microsoft Windows NT 10.0.17134.0" platform="Win32NT" cwd="C:\Users\Kirti\Documents\Visual Studio 2015\Projects\LandsWa.Acceptance.Smoke.Tests" machine-name="HOME" user="Kirti" user-domain="HOME" />
+  <culture-info current-culture="en-AU" current-uiculture="en-GB" />
+  <test-suite type="Assembly" name="C:\Users\Kirti\Documents\Visual Studio 2015\Projects\LandsWa.Acceptance.Smoke.Tests\LandsWa.Acceptance.Smoke.Tests\bin\Debug\LandsWa.Acceptance.Smoke.Tests.dll" executed="True" result="Success" success="True" time="22.403" asserts="2">
+    <properties>
+      <property name="_PID" value="20928" />
+      <property name="_APPDOMAIN" value="domain-" />
+    </properties>
+    <results>
+      <test-suite type="TestSuite" name="LandsWa" executed="True" result="Success" success="True" time="22.365" asserts="2">
+        <results>
+          <test-suite type="TestSuite" name="Acceptance" executed="True" result="Success" success="True" time="22.364" asserts="2">
+            <results>
+              <test-suite type="TestSuite" name="Smoke" executed="True" result="Success" success="True" time="22.364" asserts="2">
+                <results>
+                  <test-suite type="TestSuite" name="Tests" executed="True" result="Success" success="True" time="22.364" asserts="2">
+                    <results>
+                      <test-suite type="TestSuite" name="Feature" executed="True" result="Success" success="True" time="22.364" asserts="2">
+                        <results>
+                          <test-suite type="TestFixture" name="ManagerLoginFeature" description="ManagerLogin" executed="True" result="Success" success="True" time="22.356" asserts="2">
+                            <properties>
+                              <property name="Description" value="ManagerLogin" />
+                            </properties>
+                            <results>
+                              <test-case name="LandsWa.Acceptance.Smoke.Tests.Feature.ManagerLoginFeature.ManagerLogsInSuccessfully" description="Manager logs in successfully" executed="True" result="Success" success="True" time="15.456" asserts="2">
+                                <categories>
+                                  <category name="smoke" />
+                                </categories>
+                                <properties>
+                                  <property name="Description" value="Manager logs in successfully" />
+                                </properties>
+                              </test-case>
+                            </results>
+                          </test-suite>
+                        </results>
+                      </test-suite>
+                    </results>
+                  </test-suite>
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

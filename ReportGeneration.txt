@@ -2,3 +2,6 @@
 
 
 .\packages\SpecFlow.2.3.2\tools\Specflow.exe nunitexecutionreport  .\LandsWa.Acceptance.Smoke.Tests\LandsWa.Acceptance.Smoke.Tests.csproj /out:Result.html
+
+
+.\packages\SpecFlow.2.4.0\tools\Specflow.exe nunitexecutionreport --ProjectFile LandsWa.Acceptance.Smoke.Tests\LandsWa.Acceptance.Smoke.Tests.csproj --xmlTestResult TestResult.xml --testOutput TestResult.txt --OutputFile Result.html

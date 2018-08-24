@@ -1,0 +1,16 @@
+=> LandsWa.Acceptance.Smoke.Tests.Feature.ManagerLoginFeature.ManagerLogsInSuccessfully
+Given I am on the login page
+-> done: ManagerLoginSteps.GivenIAmOnTheLoginPage() (0.8s)
+And I enter Username and password
+  --- table step argument ---
+  | username  | password |
+  | SophiaAss | infy4321 |
+-> done: ManagerLoginSteps.GivenIEnterUsernameAndPassword(<table>) (3.8s)
+When I click on Login button
+-> done: ManagerLoginSteps.WhenIClickOnLoginButton() (6.0s)
+Then I should be taken to team dashboard
+-> done: ManagerLoginSteps.ThenIShouldBeTakenToTeamDashboard() (0.6s)
+And Manager name 'Sophia' should be displayed on the Team Dashboard
+-> done: ManagerLoginSteps.ThenManagerNameShouldBeDisplayedOnTheTeamDashboard("Sophia") (4.0s)
+=> LandsWa.Acceptance.Smoke.Tests.Feature.ManagerLoginFeature
+-> Using app.config

@@ -3,7 +3,7 @@
 	As an Officer
 	I want to submit new cases for applicants
 
-@smoke
+@E2E
 Scenario: Verify that a case can be submitted successfully
 Given a web browser is at IWMS login page
 When the officer enters username "BenAss" and password "infy4321" to login
