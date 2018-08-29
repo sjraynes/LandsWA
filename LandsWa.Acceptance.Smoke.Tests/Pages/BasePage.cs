@@ -257,13 +257,13 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public static void UploadDocument(IWebElement ele, string filename)
         {
             ele.Click();
-            Thread.Sleep(1000);
+            Thread.Sleep(1500);
             var filepath = GetFolderPathInProjectRoot("Resources") + filename;
             if (File.Exists(filepath))
                 SendKeys.SendWait(GetFolderPathInProjectRoot("Resources") + filename);
             else
                 throw new Exception("File to upload does not exist");
-            Thread.Sleep(500);
+            Thread.Sleep(1500);
             SendKeys.SendWait(@"{Enter}");
         }
 
