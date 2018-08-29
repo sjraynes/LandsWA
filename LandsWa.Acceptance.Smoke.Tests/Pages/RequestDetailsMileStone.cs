@@ -26,6 +26,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         protected string dateReceived = "//label[text()='Date Received']/../../div[2]//input";
         protected string dateSigned = "//label[text()='Date Signed']/../../div[2]//input";
         protected string uploadButton = "//button[text()='Upload']";
+        protected string uploadField = "//input[@class='MultipleFileUploadWidget---ui-inaccessible']";
         protected string currentDate = DateTime.Now.ToString("dd/MM/yyyy");
         protected string errorMessage = "//*[contains(text(), 'A value is required')]";
 
@@ -98,9 +99,10 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public RequestDetailsMileStone UploadDocument(string fileName)
         {
             GetElementByXpath(staticPageElement).Click();
-            UploadDocument(GetElementByXpath(uploadButton), fileName);
+            UploadDocument(_driver.FindElement(By.XPath(uploadField)), fileName);
             return this;
         }
+
 
         public LandDetailsMileStone ClickContinueButton()
         {

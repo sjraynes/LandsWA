@@ -256,15 +256,30 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
 
         public static void UploadDocument(IWebElement ele, string filename)
         {
-            ele.Click();
-            Thread.Sleep(1500);
             var filepath = GetFolderPathInProjectRoot("Resources") + filename;
+            filepath = Path.GetFullPath(@filepath);
+
             if (File.Exists(filepath))
-                SendKeys.SendWait(GetFolderPathInProjectRoot("Resources") + filename);
+                ele.SendKeys(filepath);
             else
                 throw new Exception("File to upload does not exist");
-            Thread.Sleep(1500);
-            SendKeys.SendWait(@"{Enter}");
+            Thread.Sleep(500);
+
+            /*
+            Use Send Keys - 
+            SendKeys.SendWait(GetFolderPathInProjectRoot("Resources") + filename);
+
+            Use Actions - 
+            GetElementByXpath(uploadButton).Click();
+            _driver.SwitchTo().ActiveElement().SendKeys(filepath);
+            Actions action = new Actions(_driver);
+            action.SendKeys("{ENTER}");
+
+            Use AutoIt -
+            GetElementByXpath(uploadButton).Click();
+            AutoItX.Send(filepath);
+            AutoItX.Send("{ENTER}");
+            */
         }
 
         public static string GetFolderPathInProjectRoot(string dirName)
