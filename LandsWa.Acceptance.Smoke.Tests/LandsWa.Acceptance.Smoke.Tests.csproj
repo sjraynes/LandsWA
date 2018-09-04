@@ -138,6 +138,13 @@
       <LastGenOutput>ManagerLogin.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Resources\20180613 Local Government correspondence.docx" />
+    <None Include="Resources\20180615 Additional Information Document-2.docx" />
+    <None Include="Resources\20180615 Additional Information Document.docx" />
+    <None Include="Resources\20180617 Terms and Conditions Form - Signed by Applicant.docx" />
+    <None Include="Resources\20180619 Event Grant or Sponsorship Details.docx" />
+    <None Include="Resources\20180619 Event Layout or map.docx" />
+    <None Include="Resources\20180619 Objective file.obr" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ss\" />
