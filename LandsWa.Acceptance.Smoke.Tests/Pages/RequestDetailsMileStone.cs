@@ -23,6 +23,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         protected string descriptionTextArea = "//textarea";
         protected string CLEFRequestCheckbox = "//label[text()=' Request received on a CLEF']";
         protected string signedCheckbox = "//label[text()='Signed by Applicant']";
+        protected string positionTextBox = "//label[text()='Position']/../../div[2]//input";
         protected string dateReceived = "//label[text()='Date Received']/../../div[2]//input";
         protected string dateSigned = "//label[text()='Date Signed']/../../div[2]//input";
         protected string uploadButton = "//button[text()='Upload']";
@@ -59,6 +60,12 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public RequestDetailsMileStone SelectGeneralRequestType()
         {
             GetElementByXpath(genrealRequestType).Click();
+            return this;
+        }
+
+        public RequestDetailsMileStone SelectLgaRequestType()
+        {
+            GetElementByXpath(LgaType).Click();
             return this;
         }
 
@@ -104,7 +111,13 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
                 case RequestType.Event:
                     GetElementByXpath(EventType).Click();
                     break;
-            }           
+            }
+            return this;
+        }
+
+        public RequestDetailsMileStone EnterPosition(string position)
+        {
+            GetElementByXpath(positionTextBox).SendKeys(position);
             return this;
         }
 
@@ -156,10 +169,12 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public LandDetailsMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
-            try { 
-            if (_driver.FindElement(By.XPath(errorMessage)).Displayed)
-                throw new Exception("Error displayed on Request Details page");
-            }catch(Exception e) { Console.WriteLine("Request Details error validation throws error");   }
+            try
+            {
+                if (_driver.FindElement(By.XPath(errorMessage)).Displayed)
+                    throw new Exception("Error displayed on Request Details page");
+            }
+            catch (Exception e) { Console.WriteLine("Request Details error validation throws error"); }
             Console.WriteLine("Moved past Request Details Page");
             return new LandDetailsMileStone(_driver);
         }
