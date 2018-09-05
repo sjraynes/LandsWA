@@ -14,7 +14,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
     {
         LoginPage loginPage;
         MyDashboardPage myDashboard;
-        [TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi", "Easement", "Joondalup")]
+        [TestCase("BenAss", "Ben", "infy4321", User.Officer, "Andrew", "Easement", "Joondalup")]
         public void VerifyThatAssOfficerCanAddAdditionalInfoToCases(
             string login,
             string name,
@@ -35,7 +35,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            myDashboard.ClickCreateNewCaseButon()
+            myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
