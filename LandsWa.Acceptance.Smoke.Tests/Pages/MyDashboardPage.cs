@@ -24,7 +24,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return NameElement.Displayed;
         }
 
-        internal AssignApplicantCustomerPage ClickCreateNewCaseButon()
+        internal AssignApplicantCustomerPage ClickCreateNewCaseButton()
         {
             IWebElement ele = null;
             try
