@@ -13,6 +13,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         private IWebDriver _driver;
         protected string staticPageElement = "//h2/a[contains(text(), 'Applicant Details')]";
         protected string continueButton = "//button[text()='Continue']";
+        protected string UploadConsentDocument = "//input[@class='MultipleFileUploadWidget---ui-inaccessible']";
 
         public ApplicantDetailsMileStone(IWebDriver driver) : base(driver)
         {
@@ -20,10 +21,21 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             GetElementByXpath(staticPageElement);
         }
 
+        public ApplicantDetailsMileStone UploadAConsentDocument()
+        {
+            UploadDocument(_driver.FindElement(By.XPath(UploadConsentDocument)), "20180610 Consent from Customer to Applicant 01.docx");
+            return new ApplicantDetailsMileStone(_driver);
+        }
+
         public RequestDetailsMileStone ClickContinueButton()
         {
             GetElementByXpath(continueButton).Click();
             return new RequestDetailsMileStone(_driver);
+        }
+
+        public bool GetPageHeading(string heading)
+        {
+            return GetElementByXpath(staticPageElement).Text.Contains(heading);
         }
     }
 }
