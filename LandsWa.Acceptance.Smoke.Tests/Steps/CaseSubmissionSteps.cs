@@ -51,7 +51,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
         [When(@"searches for an applicant ""(.*)""")]
         public void WhenSearchesForAnApplicant(string applicantName)
         {
-            applicantDetailsPage = myDashboard.ClickCreateNewCaseButon()
+            applicantDetailsPage = myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue();
