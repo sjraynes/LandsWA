@@ -28,7 +28,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            bool isLandRecordPageLoaded = myDashboard.ClickCreateNewCaseButon()
+            bool isLandRecordPageLoaded = myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
@@ -60,7 +60,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            myDashboard.ClickCreateNewCaseButon()
+            myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
@@ -93,7 +93,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            RequestDetailsMileStone requestDetails = myDashboard.ClickCreateNewCaseButon()
+            RequestDetailsMileStone requestDetails = myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
