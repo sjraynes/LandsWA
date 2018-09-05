@@ -16,6 +16,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
         MyDashboardPage myDashboard;
 
         //[TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi", "Ganesh")]
+        [Category("SteveTest")]
         [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert")]
         public void VerifyThatAnOfficerCanSearchAnApplicantLogin(string login, string name, string password, User user, string applicantName, string customerName)
         {
