@@ -78,9 +78,9 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         public RequestDetailsMileStone CompleteEventDetails()
         {
             GetElementByXpath(eventFromDate).SendKeys("28/11/2020");
-            GetElementByXpath(eventFromTime).SendKeys("10:00 am");
+            GetElementByXpath(eventFromTime).SendKeys("10:00");
             GetElementByXpath(eventToDate).SendKeys("30/11/2020");
-            GetElementByXpath(eventToTime).SendKeys("11:35 pm");
+            GetElementByXpath(eventToTime).SendKeys("23:35");
             GetElementByXpath(eventPurpose).SendKeys("Splendour in the Grass");
             GetElementByXpath(eventLandSize).SendKeys("24596");
             UploadDocument(_driver.FindElement(By.XPath(eventUploadLayoutDocument)), "20180619 Event Layout or map.docx");
