@@ -14,13 +14,14 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
     {
         LoginPage loginPage;
         MyDashboardPage myDashboard;
-        [TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi", "Easement", "Joondalup")]
-        public void VerifyThatAssOfficerIsAbleToPerformNewCaseSubmission(
+        [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert", "Easement", "Joondalup")]
+        public void VerifyOfficerIsAbleToPerformNewCaseSubmission(
             string login,
             string name,
             string password,
             User user,
             string applicantName,
+            string customerName,
             string category,
             string LGAName
             )
@@ -35,14 +36,14 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            myDashboard.ClickCreateNewCaseButon()
+            myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
                 .ClickContinueButton()
                 .SelectGeneralRequestType()
                 .SelectCategoryFromDropdown(category)
-                .EnterDescription("Descr")
+                .EnterDescription("Normal Case created using an Automation script written by the LandsWA Test Team.")
                 .ClickCLEFRequestCheckbox()
                 .ClickApplicantSignedCheckbox()
                 .EnterDateSigned()
