@@ -35,7 +35,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            bool landRecordAdded = myDashboard.ClickCreateNewCaseButon()
+            bool landRecordAdded = myDashboard.ClickCreateNewCaseButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
