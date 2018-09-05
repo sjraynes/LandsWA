@@ -1,4 +1,4 @@
-﻿using LandsWa.Acceptance.Smoke.Tests.Pages;
+using LandsWa.Acceptance.Smoke.Tests.Pages;
 using LandsWa.Acceptance.Smoke.Tests.SetupTeardown;
 using NUnit.Framework;
 using System;
@@ -15,8 +15,10 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
         LoginPage loginPage;
         MyDashboardPage myDashboard;
 
-        [TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi")]
-        public void VerifyThatAnOfficerCanSearchAnApplicantLogin(string login, string name, string password, User user, string applicantName)
+        //[TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi", "Ganesh")]
+        [Category("SteveTest")]
+        [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert")]
+        public void VerifyThatAnOfficerCanSearchAnApplicantLogin(string login, string name, string password, User user, string applicantName, string customerName)
         {
             loginPage = new LoginPage(Driver);
 
@@ -28,10 +30,35 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsPageLoadComplete());
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
-            myDashboard.ClickCreateNewCaseButon()
-                .SearchAnApplicantWithName(applicantName)
-                .SelectTheApplicantFromSearchResultWithName(applicantName)
-                .Continue();
+            var applicantDetailsPage = myDashboard.ClickCreateNewCaseButton()
+                 .SearchAnApplicantWithName(applicantName)
+                 .SelectTheApplicantFromSearchResultWithName(applicantName)
+                 .CheckApplicantIsNotCustomer()
+                 .SearchACustomerWithName(customerName)
+                 .SelectTheApplicantFromSearchResultWithName(customerName)
+                 .Continue();
+
+            Assert.IsTrue(applicantDetailsPage.GetPageHeading("Applicant Details"));
+
+            applicantDetailsPage.UploadAConsentDocument()
+                .ClickContinueButton()
+                .SelectEventRequestType()
+                .CompleteEventDetails()
+                .ClickContinueButton()
+                .AddLandRecordForLGA("Joondalup")
+                .ClickContinueButton()
+                .ClickLGACheckboxToConsult()
+                .HasLGABeenConsultedRadioButtonResponse(Decision.Yes)
+                .ClickUpdateButton()
+                .ClickContinueButton()
+                .ClickContinueButton()
+                .ClickCheckBox()
+                .ClickContinueButton()
+                .SendCaseSummaryToApplicantRadioButton(Decision.Yes)
+                .SelectMethodOfContact(ContactMethod.Email)
+                .AnyOtherDocumentsToSend(Decision.No)
+                .ClickReadyToEmailConfirmationCheckbox()
+                .ClickDoneButton();
 
         }
     }
