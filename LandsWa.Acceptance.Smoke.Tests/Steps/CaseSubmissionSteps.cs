@@ -71,7 +71,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
                 .EnterDateReceived()
                 .UploadDocument("Document_1.txt")
                 .ClickContinueButton()
-                .AddLandRecordForLGA(data["lga"])
+                .AddLandRecordForLGA(data["lga"],data["south"])
                 .ClickContinueButton()
                 .ClickLGACheckboxToConsult()
                 .HasLGABeenConsultedRadioButtonResponse(Decision.Yes)
