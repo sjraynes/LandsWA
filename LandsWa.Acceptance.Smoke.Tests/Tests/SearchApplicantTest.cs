@@ -18,7 +18,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
         //[TestCase("BenAss", "Ben", "infy4321", User.Officer, "Ravi", "Ganesh")]
         [Category("SteveTest")]
         [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert")]
-        public void VerifyThatAnOfficerCanSearchAnApplicantLogin(string login, string name, string password, User user, string applicantName, string customerName)
+        public void VerifyThatAnOfficerCanMakeAnEventSubmission(string login, string name, string password, User user, string applicantName, string customerName)
         {
             loginPage = new LoginPage(Driver);
 
@@ -33,7 +33,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             var applicantDetailsPage = myDashboard.ClickCreateNewCaseButton()
                  .SearchAnApplicantWithName(applicantName)
                  .SelectTheApplicantFromSearchResultWithName(applicantName)
-                 .CheckApplicantIsNotCustomer()
+                 .SetApplicantIsNotCustomer()
                  .SearchACustomerWithName(customerName)
                  .SelectTheApplicantFromSearchResultWithName(customerName)
                  .Continue();
@@ -45,10 +45,12 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .SelectEventRequestType()
                 .CompleteEventDetails()
                 .ClickContinueButton()
-                .AddLandRecordForLGA("Joondalup")
+                .AddLandRecordForLGA("Joondalup", "Katanning")
+                .AddGeneralInformation()
                 .ClickContinueButton()
                 .ClickLGACheckboxToConsult()
                 .HasLGABeenConsultedRadioButtonResponse(Decision.Yes)
+                .ConsultationAddOtherDetails()
                 .ClickUpdateButton()
                 .ClickContinueButton()
                 .ClickContinueButton()
