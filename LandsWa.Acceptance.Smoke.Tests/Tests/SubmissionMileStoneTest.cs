@@ -14,7 +14,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
     {
         LoginPage loginPage;
         MyDashboardPage myDashboard;
-        [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert", "Easement", "Joondalup")]
+        [TestCase("WilmaFlin", "Wilma", "infy4321", User.Officer, "Andrew", "Robert", "Easement", "Joondalup", "Meekatha")]
         public void VerifyOfficerIsAbleToPerformNewCaseSubmission(
             string login,
             string name,
@@ -23,7 +23,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             string applicantName,
             string customerName,
             string category,
-            string LGAName
+            string LGAName,
+            string suburb
             )
         {
             loginPage = new LoginPage(Driver);
@@ -50,10 +51,12 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .EnterDateReceived()
                 .UploadDocument("Document_1.txt")
                 .ClickContinueButton()
-                .AddLandRecordForLGA(LGAName)
+                .AddLandRecordForLGA(LGAName,suburb)
+                .AddGeneralInformation()
                 .ClickContinueButton()
                 .ClickLGACheckboxToConsult()
                 .HasLGABeenConsultedRadioButtonResponse(Decision.Yes)
+                .ConsultationAddOtherDetails()
                 .ClickUpdateButton()
                 .ClickContinueButton()
                 .ClickContinueButton()
