@@ -1,5 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.10.0\build\net35\NUnit3TestAdapter.props')" />
   <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -96,6 +97,8 @@
     <Compile Include="Pages\AdditionalInformationMileStone.cs" />
     <Compile Include="Pages\ApplicantDetailsMileStone.cs" />
     <Compile Include="Pages\AssignApplicantCustomerPage.cs" />
+    <Compile Include="Pages\AddCaseNotes.cs" />
+    <Compile Include="Pages\InternalExternalPage.cs" />
     <Compile Include="Pages\ConsultationMileStone.cs" />
     <Compile Include="Pages\LandDetailsMileStone.cs" />
     <Compile Include="Pages\MyDashboardPage.cs" />
@@ -138,9 +141,11 @@
       <LastGenOutput>ManagerLogin.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
+    <None Include="Resources\20180610 Consent from Customer to Applicant 01.docx" />
     <None Include="Resources\20180613 Local Government correspondence.docx" />
     <None Include="Resources\20180615 Additional Information Document-2.docx" />
     <None Include="Resources\20180615 Additional Information Document.docx" />
+    <None Include="Resources\20180611 Applicants Request 01.docx" />
     <None Include="Resources\20180617 Terms and Conditions Form - Signed by Applicant.docx" />
     <None Include="Resources\20180619 Event Grant or Sponsorship Details.docx" />
     <None Include="Resources\20180619 Event Layout or map.docx" />
