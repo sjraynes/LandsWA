@@ -38,6 +38,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
             myDashboard.ClickCreateNewCaseButton()
+                .SetRequestToExternal()
+                .ClickDoneButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
