@@ -24,7 +24,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             return NameElement.Displayed;
         }
 
-        internal AssignApplicantCustomerPage ClickCreateNewCaseButton()
+        internal InternalExternalPage ClickCreateNewCaseButton()
         {
             IWebElement ele = null;
             try
@@ -37,7 +37,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
                 Console.WriteLine(e.InnerException);
             }
             ele.Click();
-            return new AssignApplicantCustomerPage(_driver);
+            return new InternalExternalPage(_driver);
         }
     }
 }

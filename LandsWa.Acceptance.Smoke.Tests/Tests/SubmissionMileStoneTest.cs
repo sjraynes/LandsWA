@@ -58,7 +58,6 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
                 .ClickContinueButton()
                 .ClickLGACheckboxToConsult()
                 .HasLGABeenConsultedRadioButtonResponse(Decision.Yes)
-                .ConsultationAddOtherDetails()
                 .ClickUpdateButton()
                 .ClickContinueButton()
                 .ClickContinueButton()

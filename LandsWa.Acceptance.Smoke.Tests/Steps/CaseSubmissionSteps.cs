@@ -52,6 +52,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Steps
         public void WhenSearchesForAnApplicant(string applicantName)
         {
             applicantDetailsPage = myDashboard.ClickCreateNewCaseButton()
+                .SetRequestToExternal()
+                .ClickDoneButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue();
