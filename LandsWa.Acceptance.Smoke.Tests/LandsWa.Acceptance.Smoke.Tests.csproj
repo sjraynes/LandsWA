@@ -97,7 +97,6 @@
     <Compile Include="Pages\AdditionalInformationMileStone.cs" />
     <Compile Include="Pages\ApplicantDetailsMileStone.cs" />
     <Compile Include="Pages\AssignApplicantCustomerPage.cs" />
-    <Compile Include="Pages\AddCaseNotes.cs" />
     <Compile Include="Pages\InternalExternalPage.cs" />
     <Compile Include="Pages\ConsultationMileStone.cs" />
     <Compile Include="Pages\LandDetailsMileStone.cs" />
