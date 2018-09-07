@@ -29,6 +29,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
             bool isLandRecordPageLoaded = myDashboard.ClickCreateNewCaseButton()
+                .SetRequestToExternal()
+                .ClickDoneButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
@@ -61,6 +63,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
             myDashboard.ClickCreateNewCaseButton()
+                .SetRequestToExternal()
+                .ClickDoneButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
@@ -94,6 +98,8 @@ namespace LandsWa.Acceptance.Smoke.Tests.Tests
             Assert.IsTrue(myDashboard.IsOfficerNameDisplayed(name));
 
             RequestDetailsMileStone requestDetails = myDashboard.ClickCreateNewCaseButton()
+                .SetRequestToExternal()
+                .ClickDoneButton()
                 .SearchAnApplicantWithName(applicantName)
                 .SelectTheApplicantFromSearchResultWithName(applicantName)
                 .Continue()
