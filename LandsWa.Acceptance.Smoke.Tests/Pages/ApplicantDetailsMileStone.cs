@@ -23,7 +23,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
 
         public ApplicantDetailsMileStone UploadAConsentDocument()
         {
-            UploadDocument(_driver.FindElement(By.XPath(UploadConsentDocument)), "20180610 Consent from Customer to Applicant 01.docx");
+            UploadDocument(_driver.FindElement(By.XPath(UploadConsentDocument)), "20180615 Additional Information Document-2.docx");
             return new ApplicantDetailsMileStone(_driver);
         }
 
