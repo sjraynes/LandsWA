@@ -13,6 +13,7 @@ And creates a new case for this applicant with the following information
 | requestCategory               | Easement         |
 | requestDescription            | Automation Tests |
 | lga                           | Joondalup        |
+| suburb                        | South Perth      | 
 | methodOfContact               | Email            |
 | sendOtherDocumentsToApplicant | No               |
 Then a new case will be created on team dashboard
