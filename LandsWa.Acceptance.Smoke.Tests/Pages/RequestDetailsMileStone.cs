@@ -92,7 +92,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
             GetElementByXpath(eventExpenditure).SendKeys("458769");
             GetElementByXpath(eventApplicationDateReceived).SendKeys("03/09/2018");
             GetElementByXpath(staticPageElement).Click();
-            UploadDocument(_driver.FindElement(By.XPath(eventUploadApplicantsRequest)), "20180611_Applicants_Request_01.docx");
+            UploadDocument(_driver.FindElement(By.XPath(eventUploadApplicantsRequest)), "20180615 Additional Information Document-2.docx");
             UploadDocument(_driver.FindElement(By.XPath(eventUploadGrantDocument)), "20180619 Event Grant or Sponsorship Details.docx");
 
             return this;
