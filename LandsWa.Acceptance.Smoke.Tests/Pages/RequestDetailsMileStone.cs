@@ -22,7 +22,7 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         protected string categoryDropdown = "//div[text()='Select one item...']";
         protected string descriptionTextArea = "//textarea";
         protected string CLEFRequestCheckbox = "//label[text()=' Request received on a CLEF']";
-        protected string signedCheckbox = "//label[text()='Signed by Applicant']";
+        protected string signedCheckbox = "//label[text()='Signed']";
         protected string positionTextBox = "//label[text()='Position']/../../div[2]//input";
         protected string dateReceived = "//label[text()='Date Received']/../../div[2]//input";
         protected string dateSigned = "//label[text()='Date Signed']/../../div[2]//input";
