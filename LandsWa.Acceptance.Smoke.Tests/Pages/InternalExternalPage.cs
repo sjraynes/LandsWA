@@ -14,11 +14,11 @@ namespace LandsWa.Acceptance.Smoke.Tests.Pages
         // If internal, then Team Name shown, and 'Is a customer Associated with this case?'
         protected override By IsPageLoadedBy => By.XPath("//h1[contains(text(),'Create New Case')]");
         private IWebDriver _driver;
-        protected string ExternalRequestOn = "//input[@value='Externally Requested']";
-        protected string InternalRequestOn = "//input[@value='Internally Requested']";
+        protected string ExternalRequestOn = "//input[@value='Externally Requested']/..";
+        protected string InternalRequestOn = "//input[@value='Internally Requested']/..";
         protected string TeamName = "//strong[text()='Team']/../../../../../../div[2]/div/div[2]/p";
-        protected string CaseHasACustomer = "//input[@value='Yes']";
-        protected string CaseHasNoCustomer = "//input[@value='No']";
+        protected string CaseHasACustomer = "//input[@value='Yes']/..";
+        protected string CaseHasNoCustomer = "//input[@value='No']/..";
         protected string DoneButton = "//button[text()='Done']";
 
 
